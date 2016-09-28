@@ -1,0 +1,27 @@
+<div class="row">
+	<div class="col-lg-12">
+		<div class="page-header">
+			<h1 id="container">Scheduler</h1>
+		</div>
+		<div class="row">
+			<div id="scheduler-content" class="col-lg-8">
+				<div ui-calendar="scheduler.config" ng-model="scheduler.eventSources"></div>
+			</div>
+
+			<div id="event-content" class="col-lg-4">
+
+				<p class="">
+					<button class="btn btn-primary" ng-click="openNewEvent()">New Event</button>
+				</p>
+
+				<div class="panel panel-default" ng-hide="selectedEvent == null">
+					<div class="panel-body">
+						<a ui-sref="viewEvent({eventId : selectedEvent.$id})">
+							{{selectedEvent.title}}	({{selectedEvent.start | date : 'shortTime'}} - {{selectedEvent.end | date : 'shortTime'}})	<span class="badge pull-right">{{selectedEvent.trainingContent.exercices.length}}</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

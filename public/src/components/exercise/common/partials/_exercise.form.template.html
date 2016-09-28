@@ -1,0 +1,39 @@
+<div ng-controller="EventFormController">
+	<form>
+		<div class="page-header">
+			<h1>Exercises Detail
+					<span class="pull-right">
+						<button class="btn btn-success" ng-click="save()">Save</button>
+						<button class="btn btn-default" ng-click="cancel()">Cancel</button>
+					</span>
+			</h1>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-4">
+				<div class="well">
+					<fieldset>
+						<div class="form-group">
+							<label for="inputExerciseName">Name </label>
+							<input id="inputExerciseName" name="inputExerciseName" type="text" class="form-control"
+								   ng-model="exercise.name"/>
+						</div>
+						<div class="form-group">
+							<label for="selectExerciseType">Type </label>
+							<select id="selectExerciseType" name="selectExerciseType" type="text" class="form-control"
+									ng-model="exercise.type">
+								<option value="0">Repetitions</option>
+								<option value="1">Duration</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="inputExerciseDescription">Description </label>
+							<textarea id="inputExerciseDescription" name="inputExerciseDescription" type="text" class="form-control"
+								   ng-model="exercise.description"></textarea>
+						</div>
+					</fieldset>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

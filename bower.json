@@ -1,0 +1,29 @@
+{
+  "name": "Shanks",
+  "authors": [
+    "ca0dvsv <david.sauve@festo.com>"
+  ],
+  "description": "",
+  "main": "index.html",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "index.html",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8",
+    "bootstrap": "^3.3.7",
+    "angular-ui-router": "^0.3.1",
+    "angular-ui-calendar": "^1.0.2",
+    "angularfire": "^2.0.2",
+    "angular-bootstrap": "^2.1.3",
+    "ngToast": "ngtoast#^2.0.0",
+    "angular-animate": "^1.5.8"
+  }
+}
