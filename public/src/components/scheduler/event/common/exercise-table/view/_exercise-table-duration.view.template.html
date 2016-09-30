@@ -2,17 +2,19 @@
 	<thead>
 	<tr>
 		<th>#</th>
-		<th>Duration (s)</th>
+		<th>Performed duration (s)</th>
+		<th>Expected duration (s)</th>
 		<th>Load (lbs)</th>
-		<th>Rest After (s)</th>
+		<th>Rest (s)</th>
 	</tr>
 	</thead>
 	<tbody>
 	<tr ng-repeat="set in exercise.sets">
 		<td>{{$index + 1}}</td>
+		<td>{{set.performedDuration}}</td>
 		<td>{{set.expectedDuration}}</td>
 		<td>{{set.load}}</td>
-		<td>{{set.restAfter}}</td>
+		<td>{{set.rest}}</td>
 	</tr>
 	</tbody>
 </table>

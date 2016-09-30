@@ -50,6 +50,7 @@
 					exercise.sets.push(
 						{
 							expectedReps: 0,
+							performedReps: 0,
 							load: 0,
 							restAfter: 0
 						}
@@ -59,6 +60,7 @@
 					exercise.sets.push(
 						{
 							expectedDuration: 0,
+							performedDuration: 0,
 							load: 0,
 							restAfter: 0
 						}
