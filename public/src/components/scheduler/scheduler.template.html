@@ -17,7 +17,7 @@
 				<div class="panel panel-default" ng-hide="selectedEvent == null">
 					<div class="panel-body">
 						<a ui-sref="viewEvent({eventId : selectedEvent.$id})">
-							{{selectedEvent.title}}	({{selectedEvent.start | date : 'shortTime'}} - {{selectedEvent.end | date : 'shortTime'}})	<span class="badge pull-right">{{selectedEvent.trainingContent.exercices.length}}</span>
+							{{selectedEvent.title}}	({{selectedEvent.start | date : 'shortTime'}} - {{selectedEvent.end | date : 'shortTime'}})	<span class="badge pull-right">{{selectedEvent.trainingContent.exercises.length}}</span>
 						</a>
 					</div>
 				</div>

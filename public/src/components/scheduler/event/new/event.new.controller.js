@@ -21,7 +21,6 @@
 		})();
 
 		$scope.save = function () {
-
 			var ref = firebase.database().ref().child("events");
 			$scope.events = $firebaseArray(ref);
 
