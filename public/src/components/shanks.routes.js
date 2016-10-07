@@ -36,6 +36,11 @@
 				templateUrl: 'components/scheduler/event/edit/event.edit.template.html',
 				controller : 'EventEditController'
 			})
+			.state('assistantEvent', {
+				url: '/events/:eventId/assistant',
+				templateUrl: 'components/scheduler/event/assistant/event.assistant.template.html',
+				controller : 'EventAssistantController'
+			})
 			.state('exercises', {
 				url: '/exercises',
 				templateUrl: 'components/exercise/list/exercise.list.template.html',
