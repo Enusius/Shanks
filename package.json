@@ -4,7 +4,9 @@
   "description": "",
   "main": "public/index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "postinstall": "bower install"
   },
   "author": "david.sauve1@ulaval.ca",
   "license": "ISC",
@@ -14,6 +16,13 @@
     "gulp-inject": "^4.1.0",
     "gulp-live-server": "0.0.30",
     "gulp-useref": "^3.1.2",
+    "main-bower-files": "^2.13.1",
+    "bower": "^1.7.9",
     "wiredep": "^4.0.0"
+  },
+  "dependencies": {
+    "bower": "^1.7.9",
+    "express": "^4.14.0",
+    "path": "^0.12.7"
   }
 }

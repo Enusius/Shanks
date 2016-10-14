@@ -6,7 +6,7 @@
 		.directive('cubeGridSpinner', function () {
 			return {
 				restrict: 'E',
-				templateUrl: 'components/cubeGridSpinner/cube-grid-spinner.template.html'
+				templateUrl: '/public/src/components/cubeGridSpinner/cube-grid-spinner.template.html'
 			};
 		});
 

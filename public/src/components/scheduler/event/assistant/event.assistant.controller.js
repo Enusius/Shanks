@@ -22,7 +22,6 @@
 					function (data) {
 						$rootScope.pageLoading = false;
 						$scope.event = data;
-						$scope.currentSet = $scope.event.trainingContent.exercises[0].sets[0];
 					},
 					function (error) {
 						$rootScope.pageLoading = false;
@@ -31,6 +30,17 @@
 				);
 			}
 		})();
+
+		$scope.save = function () {
+			$scope.event
+				.$save()
+				.then(function () {
+					ngToast.success("Sauvegarde reussi!");
+				})
+				.catch(function () {
+					ngToast.danger("Une erreur est survenue. Veuillez reesayer");
+				});
+		};
 
 	}
 })();

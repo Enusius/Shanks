@@ -10,32 +10,31 @@ gulp.task('serve', function () {
 	server.start();
 });
 
-gulp.task('bower', function () {
-	gulp.src('./public/src/index.html')
-		.pipe(wiredep({
-			optional: 'configuration',
-			goes: 'here'
-		}))
-		.pipe(gulp.dest('./public/src'));
-});
-
 gulp.task('angularFileSort', function () {
 	return gulp.src('./public/src/index.html')
 		.pipe(inject(gulp.src(['./public/src/components/**/*.js'])
 			.pipe(angularFilesort()), {relative: true}))
 		.pipe(gulp.dest('./public/src'));
 });
-
 gulp.task('useref', function () {
 	return gulp.src('./public/src/index.html')
 		.pipe(useref())
 		.pipe(gulp.dest('./public/dist'));
 });
-
+gulp.task('copy-templates', function() {
+	gulp.src('./public/src/**/*.template.html')
+		// Perform minification tasks, etc here
+		.pipe(gulp.dest('./public/dist'));
+});
+gulp.task('copy-font', function() {
+	gulp.src('./public/src/resources/fonts/*')
+		// Perform minification tasks, etc here
+		.pipe(gulp.dest('./public/dist/fonts'));
+});
 gulp.task('inject-dependencies', function () {
 	var target = gulp.src('./public/src/index.html');
 	// It's not necessary to read the files (will speed up things), we're only after their paths:
-	var sources = gulp.src([
+	var dependencies = gulp.src([
 		"./public/bower_components/jquery/dist/jquery.min.js",
 		"./public/bower_components/moment/min/moment.min.js",
 		"./public/bower_components/angular/angular.min.js",
@@ -51,8 +50,13 @@ gulp.task('inject-dependencies', function () {
 		"./public/bower_components/angular-sanitize/angular-sanitize.min.js",
 		"./public/bower_components/angular-animate/angular-animate.min.js",
 		"./public/bower_components/ngToast/dist/ngToast.min.js"
-	], {read: false});
+	]);
 
-	return target.pipe(inject(sources))
-		.pipe(gulp.dest('./public/src'));
+	var projectSources = gulp.src(["./public/src/components/**/*.js"]);
+
+	return target
+		.pipe(inject(dependencies, {name : 'bower'}))
+		.pipe(inject(projectSources.pipe(angularFilesort())))
+		.pipe(gulp.dest('.'));
 });
+

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html ng-app="shanksApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Shanks</title>
+
+	<!-- build:js scripts/minified.js -->
+	<!--Dependencies--->
+
+	<!-- bower:js -->
+	<script src="/public/bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="/public/bower_components/moment/min/moment.min.js"></script>
+	<script src="/public/bower_components/angular/angular.min.js"></script>
+	<script src="/public/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+	<script src="/public/bower_components/angular-ui-calendar/src/calendar.js"></script>
+	<script src="/public/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+	<script src="/public/bower_components/fullcalendar/dist/gcal.js"></script>
+	<script src="/public/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="/public/bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+	<script src="/public/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+	<script src="/public/bower_components/firebase/firebase.js"></script>
+	<script src="/public/bower_components/angularfire/dist/angularfire.min.js"></script>
+	<script src="/public/bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+	<script src="/public/bower_components/angular-animate/angular-animate.min.js"></script>
+	<script src="/public/bower_components/ngToast/dist/ngToast.min.js"></script>
+	<!-- endinject -->
+
+	<!-- inject:js -->
+	<script src="/public/src/components/shanks.app.js"></script>
+	<script src="/public/src/components/scheduler/event/common/select-exercise/select-exercise.form.controller.js"></script>
+	<script src="/public/src/components/scheduler/event/common/event-form/event.form.controller.js"></script>
+	<script src="/public/src/components/scheduler/event/view/event.view.controller.js"></script>
+	<script src="/public/src/components/scheduler/event/new/event.new.controller.js"></script>
+	<script src="/public/src/components/scheduler/event/edit/event.edit.controller.js"></script>
+	<script src="/public/src/components/scheduler/event/assistant/event.assistant.controller.js"></script>
+	<script src="/public/src/components/exercise/common/partials/exercise.form.controller.js"></script>
+	<script src="/public/src/components/exercise/view/exercise.view.controller.js"></script>
+	<script src="/public/src/components/exercise/list/exercise.list.controller.js"></script>
+	<script src="/public/src/components/exercise/new/exercise.new.controller.js"></script>
+	<script src="/public/src/components/exercise/edit/exercise.edit.controller.js"></script>
+	<script src="/public/src/components/scheduler/scheduler.controller.js"></script>
+	<script src="/public/src/components/menu/menu.controller.js"></script>
+	<script src="/public/src/components/firebase/firebase.config.js"></script>
+	<script src="/public/src/components/cubeGridSpinner/cube-grid-spinner.directive.js"></script>
+	<script src="/public/src/components/shanks.routes.js"></script>
+	<script src="/public/src/components/shanks.config.js"></script>
+	<!-- endinject -->
+
+	<!-- endbuild -->
+
+	<!-- build:css css/combined.css -->
+	<link rel="stylesheet" href="/public/bower_components/fullcalendar/dist/fullcalendar.css"/>
+	<link rel="stylesheet" href="/public/bower_components/ngToast/dist/ngToast.min.css"/>
+	<link rel="stylesheet" href="/public/bower_components/ngToast/dist/ngToast-animations.min.css"/>
+	<link rel="stylesheet" href="/public/src/resources/css/mybootstrap.min.css"/>
+	<link rel="stylesheet" href="/public/src/resources/css/overwrite.css"/>
+	<!-- endbuild -->
+</head>
+<body>
+
+<div class="container-fluid">
+	<header class="row" ng-include="'/public/src/components/menu/menu.template.html'"></header>
+
+	<main class="content" ui-view ng-hide="isPageLoading()">
+	</main>
+
+	<div class="row">
+		<div class="col-lg-12" ng-show="isPageLoading()">
+			<cube-grid-spinner></cube-grid-spinner>
+		</div>
+	</div>
+
+	<toast class="ng-toast--bottom ng-toast--left ng-toast--animate-fade ng-toast"></toast>
+</div>
+
+</body>
+</html>
