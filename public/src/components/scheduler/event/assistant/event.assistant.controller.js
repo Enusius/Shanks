@@ -3,15 +3,15 @@
 
 	angular
 		.module('shanksApp')
-		.controller('EventViewController', EventViewController);
+		.controller('EventAssistantController', EventAssistantController);
 
-	EventViewController.$inject = ['$scope', '$rootScope', '$stateParams', '$state', '$firebaseObject', 'ngToast'];
+	EventAssistantController.$inject = ['$scope', '$rootScope', '$stateParams', '$state', '$firebaseObject', 'ngToast'];
 
-	function EventViewController($scope, $rootScope, $stateParams, $state, $firebaseObject, ngToast) {
+	function EventAssistantController($scope, $rootScope, $stateParams, $state, $firebaseObject, ngToast) {
 
 		(function initializeController() {
 			if ($stateParams.eventId === undefined || $stateParams.eventId == null || $stateParams.eventId == "") {
-				$state.go('scheduler');
+				ngToast.danger("Impossible de charger la page sans Id d'evenement");
 			}
 			else {
 				var ref = firebase.database().ref().child("events").child($stateParams.eventId);
@@ -31,12 +31,16 @@
 			}
 		})();
 
-		$scope.edit = function () {
-			$state.go('editEvent', {eventId: $stateParams.eventId});
+		$scope.save = function () {
+			$scope.event
+				.$save()
+				.then(function () {
+					ngToast.success("Sauvegarde reussi!");
+				})
+				.catch(function () {
+					ngToast.danger("Une erreur est survenue. Veuillez reesayer");
+				});
 		};
 
-		$scope.openAssistant = function(){
-			$state.go('assistantEvent', {eventId: $stateParams.eventId});
-		}
 	}
 })();

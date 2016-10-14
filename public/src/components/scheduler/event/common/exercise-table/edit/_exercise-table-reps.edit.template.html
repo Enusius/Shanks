@@ -1,0 +1,22 @@
+<table class="table table-responsive table-striped table-hover">
+	<thead>
+	<tr>
+		<th>#</th>
+		<th>Nb. Performed Reps</th>
+		<th>Nb. Expected Reps</th>
+		<th>Load (lbs)</th>
+		<th>Rest After (s)</th>
+		<th></th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr ng-repeat="set in exercise.sets">
+		<td><span class="">{{$index + 1}}</span></td>
+		<td><input type="number" class="form-control" ng-model="set.performedReps"/></td>
+		<td><input type="number" class="form-control" ng-model="set.expectedReps"/></td>
+		<td><input type="number" class="form-control" ng-model="set.load"/></td>
+		<td><input type="number" class="form-control" ng-model="set.restAfter"/></td>
+		<td><span class="glyphicon glyphicon-remove" aria-hidden="true" ng-click="removeSetFromIndex(exercise, $index)"></span></td>
+	</tr>
+	</tbody>
+</table>

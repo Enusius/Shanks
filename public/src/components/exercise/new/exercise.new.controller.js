@@ -12,7 +12,6 @@
 		(function initializeController() {
 			$scope.exercise = {
 				name: "My Awesome Exercise",
-				type: "0",
 				description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae cupiditate dignissimos id laudantium, quibusdam saepe."
 			};
 		})();
