@@ -35,6 +35,21 @@
 			$state.go('editEvent', {eventId: $stateParams.eventId});
 		};
 
+		$scope.delete = function () {
+			var ref = firebase.database().ref().child("events").child($stateParams.eventId);
+
+			$rootScope.pageLoading = true;
+
+			$firebaseObject(ref).$remove().then(function(ref) {
+				$state.go('scheduler');
+				$rootScope.pageLoading = false;
+				ngToast.success("Séance supprimé !");
+			}, function(error) {
+				ngToast.danger("Une erreur est survenue. Veuillez reesayer");
+				$rootScope.pageLoading = false;
+			});
+		};
+
 		$scope.openAssistant = function(){
 			$state.go('assistantEvent', {eventId: $stateParams.eventId});
 		}
