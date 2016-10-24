@@ -1,9 +1,43 @@
 <div class="col-lg-12" ng-hide="isPageLoading()">
+	<div class="page-header">
+
+	</div>
+
 	<div class="row">
-		<div class="jumbotron">
-			<h1>Page en cours de developpement</h1>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, at aut delectus deserunt ducimus ea eum ex inventore, laborum molestiae nam nesciunt nostrum pariatur quidem quisquam
-				quo recusandae, ut vel?</p>
+		<div class="col-lg-12">
+			<div class="well">
+				<div class="row">
+					<div class="col-lg-12">
+
+						<div class="panel panel-primary" ng-repeat="exercise in event.trainingContent.exercises">
+							<div class="panel-heading">
+								<h4>{{exercise.exercise.name}}</h4>
+							</div>
+							<div class="panel-body">
+								<table class="table table-responsive">
+									<tr>
+										<th>Load</th>
+										<th>Rest</th>
+										<th>Reps</th>
+									</tr>
+									<tr>
+										<td>
+											<progress-bar style="display: table; margin: 0 auto;" class="green big" timer-value="exercise.sets[0].load"></progress-bar>
+										</td>
+										<td>
+											<progress-bar style="display: table; margin: 0 auto;" class="orange big" timer-value="exercise.sets[0].restAfter" active="true"></progress-bar>
+										</td>
+										<td>
+											<progress-bar style="display: table; margin: 0 auto;" class="big" timer-value="exercise.sets[0].expectedReps"></progress-bar>
+										</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
+</div>
 </div>

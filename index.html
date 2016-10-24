@@ -34,11 +34,12 @@
 	<script src="/public/src/components/scheduler/event/edit/event.edit.controller.js"></script>
 	<script src="/public/src/components/scheduler/event/assistant/event.assistant.controller.js"></script>
 	<script src="/public/src/components/exercise/common/partials/exercise.form.controller.js"></script>
+	<script src="/public/src/components/exercise/new/exercise.new.controller.js"></script>
 	<script src="/public/src/components/exercise/view/exercise.view.controller.js"></script>
 	<script src="/public/src/components/exercise/list/exercise.list.controller.js"></script>
-	<script src="/public/src/components/exercise/new/exercise.new.controller.js"></script>
 	<script src="/public/src/components/exercise/edit/exercise.edit.controller.js"></script>
 	<script src="/public/src/components/scheduler/scheduler.controller.js"></script>
+	<script src="/public/src/components/progressBar/progress-bar.directive.js"></script>
 	<script src="/public/src/components/menu/menu.controller.js"></script>
 	<script src="/public/src/components/firebase/firebase.config.js"></script>
 	<script src="/public/src/components/cubeGridSpinner/cube-grid-spinner.directive.js"></script>
@@ -50,7 +51,7 @@
 
 	<!-- build:css css/combined.css -->
 	<link rel="stylesheet" href="/public/bower_components/fullcalendar/dist/fullcalendar.css"/>
-	<link rel="stylesheet" href="/public/bower_components/ngToast/dist/ngToast.min.css"/>
+	<link rel="stylesheet" href="public/bower_components/ngToast/dist/ngToast.min.css"/>
 	<link rel="stylesheet" href="/public/bower_components/ngToast/dist/ngToast-animations.min.css"/>
 	<link rel="stylesheet" href="/public/src/resources/css/mybootstrap.min.css"/>
 	<link rel="stylesheet" href="/public/src/resources/css/overwrite.css"/>
@@ -59,7 +60,7 @@
 <body>
 
 <div class="container-fluid">
-	<header class="row" ng-include="'/public/src/components/menu/menu.template.html'"></header>
+	<header class="row" ng-include="'public/src/components/menu/menu.template.html'"></header>
 
 	<main class="content" ui-view ng-hide="isPageLoading()">
 	</main>
