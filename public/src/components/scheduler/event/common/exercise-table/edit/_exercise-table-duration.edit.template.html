@@ -2,7 +2,6 @@
 	<thead>
 	<tr>
 		<th>#</th>
-		<th>Performed duration (s)</th>
 		<th>Expected duration (s)</th>
 		<th>Load (lbs)</th>
 		<th>Rest After (s)</th>
@@ -12,7 +11,6 @@
 	<tbody>
 	<tr ng-repeat="set in exercise.sets">
 		<td><span class="">{{$index + 1}}</span></td>
-		<td><input type="number" class="form-control" ng-model="set.performedDuration"/></td>
 		<td><input type="number" class="form-control" ng-model="set.expectedDuration"/></td>
 		<td><input type="number" class="form-control" ng-model="set.load"/></td>
 		<td><input type="number" class="form-control" ng-model="set.restAfter"/></td>

@@ -45,27 +45,32 @@
 			if (exercise.sets === undefined || exercise.sets == null)
 				exercise.sets = [];
 
-			switch (exercise.exercise.type) {
-				case "reps" :
-					exercise.sets.push(
-						{
-							expectedReps: 0,
-							performedReps: 0,
-							load: 0,
-							restAfter: 0
-						}
-					);
-					break;
-				case "duration" :
-					exercise.sets.push(
-						{
-							expectedDuration: 0,
-							performedDuration: 0,
-							load: 0,
-							restAfter: 0
-						}
-					);
-					break;
+			if (exercise.sets.length > 0) {
+				exercise.sets.push(angular.copy(exercise.sets[exercise.sets.length - 1]));
+			}
+			else {
+				switch (exercise.exercise.type) {
+					case "reps" :
+						exercise.sets.push(
+							{
+								expectedReps: 0,
+								performedReps: 0,
+								load: 0,
+								restAfter: 0
+							}
+						);
+						break;
+					case "duration" :
+						exercise.sets.push(
+							{
+								expectedDuration: 0,
+								performedDuration: 0,
+								load: 0,
+								restAfter: 0
+							}
+						);
+						break;
+				}
 			}
 
 		};
