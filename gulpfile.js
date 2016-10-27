@@ -49,7 +49,8 @@ gulp.task('inject-dependencies', function () {
 		"./public/bower_components/angularfire/dist/angularfire.min.js",
 		"./public/bower_components/angular-sanitize/angular-sanitize.min.js",
 		"./public/bower_components/angular-animate/angular-animate.min.js",
-		"./public/bower_components/ngToast/dist/ngToast.min.js"
+		"./public/bower_components/ngToast/dist/ngToast.min.js",
+		"./public/bower_components/lodash/dist/lodash.min.js"
 	]);
 
 	var projectSources = gulp.src(["./public/src/components/**/*.js"]);
