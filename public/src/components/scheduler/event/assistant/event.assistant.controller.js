@@ -5,9 +5,9 @@
 		.module('shanksApp')
 		.controller('EventAssistantController', EventAssistantController);
 
-	EventAssistantController.$inject = ['$scope', '$rootScope', '$stateParams', '$state', '$firebaseObject', 'ngToast'];
+	EventAssistantController.$inject = ['$scope', '$rootScope', '$stateParams', '$state', '$firebaseObject', 'ngToast', '_'];
 
-	function EventAssistantController($scope, $rootScope, $stateParams, $state, $firebaseObject, ngToast) {
+	function EventAssistantController($scope, $rootScope, $stateParams, $state, $firebaseObject, ngToast, _) {
 
 		(function initializeController() {
 			if ($stateParams.eventId === undefined || $stateParams.eventId == null || $stateParams.eventId == "") {
@@ -22,6 +22,10 @@
 					function (data) {
 						$rootScope.pageLoading = false;
 						$scope.event = data;
+
+						_.each($scope.event.trainingContent.exercises, function(exercise){
+							exercise.currentSet = 0;
+						})
 					},
 					function (error) {
 						$rootScope.pageLoading = false;
@@ -31,15 +35,13 @@
 			}
 		})();
 
-		$scope.save = function () {
-			$scope.event
-				.$save()
-				.then(function () {
-					ngToast.success("Sauvegarde reussi!");
-				})
-				.catch(function () {
-					ngToast.danger("Une erreur est survenue. Veuillez reesayer");
-				});
+
+		$scope.nextSet = function(exercise){
+			exercise.currentSet++;
+		};
+
+		$scope.previousSet = function(exercise){
+			exercise.currentSet--;
 		};
 
 	}
