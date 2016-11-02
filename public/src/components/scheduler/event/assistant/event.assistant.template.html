@@ -1,38 +1,26 @@
 <div class="col-lg-12" ng-hide="isPageLoading()">
 	<div class="page-header">
-
 	</div>
 
 	<div class="row">
 		<div class="col-lg-12">
 			<div class="row">
 				<div class="col-lg-12">
-					<div class="panel panel-primary" ng-repeat="exercise in event.trainingContent.exercises">
+					<div class="panel panel-primary" ng-repeat="exercise in event.trainingContent.exercises" ng-show="$index == currentExercise">
 						<div class="panel-heading">
 							<h4>{{exercise.exercise.name}}</h4>
 						</div>
 						<div class="panel-body">
 
-							<div class="row" ng-repeat="set in exercise.sets" ng-show="$index == exercise.currentSet">
-								<div class="col-lg-4 col-md-4">
-									<div class="well well-sm tiling">
-										<legend style="text-align: center">REST</legend>
-										<progress-bar style="display: table; margin: 0 auto;" class="green big" timer-value="set.restAfter" active="true"></progress-bar>
-									</div>
+							<div ng-switch="exercise.exercise.type">
+								<div ng-switch-when="reps">
+									<ng-include src="'/public/src/components/scheduler/event/assistant/partials/_assistant-reps.template.html'"></ng-include>
 								</div>
-								<div class="col-lg-4 col-md-4">
-									<div class="well well-sm tiling">
-										<legend style="text-align: center">LOAD</legend>
-										<div class="indicator">{{set.load}}</div>
-									</div>
-								</div>
-								<div class="col-lg-4 col-md-4">
-									<div class="well well-sm tiling">
-										<legend style="text-align: center">REPS</legend>
-										<div class="indicator">{{set.expectedReps}}</div>
-									</div>
+								<div ng-switch-when="duration">
+									<ng-include src="'/public/src/components/scheduler/event/assistant/partials/_assistant-duration.template.html'"></ng-include>
 								</div>
 							</div>
+
 							<div class="row">
 								<div class="col-lg-6">
 									<button class="btn btn-lg btn-block" ng-click="previousSet(exercise)" ng-disabled="exercise.currentSet == 0">PREVIOUS</button>
@@ -51,19 +39,19 @@
 	<style scoped>
 		.indicator {
 			text-align: center;
-			line-height: 240px;
-			font-size: 185px;
+			line-height: 120px;
+			font-size: 120px;
 		}
 
-		.tiling{
+		.tiling {
 			box-shadow: 3px 3px 8px black;
 		}
 
-		body{
+		body {
 			background-color: #223748;
 		}
 
-		.panel{
+		.panel {
 			background-color: rgba(255, 255, 255, 0.18);
 		}
 

@@ -2,7 +2,9 @@
 	<thead>
 	<tr>
 		<th>#</th>
-		<th>Expected duration (s)</th>
+		<th>Expected reps</th>
+		<th>Duration (s)</th>
+		<th>Rest (s)</th>
 		<th>Load (lbs)</th>
 		<th>Rest After (s)</th>
 		<th></th>
@@ -11,7 +13,9 @@
 	<tbody>
 	<tr ng-repeat="set in exercise.sets">
 		<td><span class="">{{$index + 1}}</span></td>
-		<td><input type="number" class="form-control" ng-model="set.expectedDuration"/></td>
+		<td><input type="number" class="form-control" ng-model="set.expectedReps"/></td>
+		<td><input type="number" class="form-control" ng-model="set.duration"/></td>
+		<td><input type="number" class="form-control" ng-model="set.rest"/></td>
 		<td><input type="number" class="form-control" ng-model="set.load"/></td>
 		<td><input type="number" class="form-control" ng-model="set.restAfter"/></td>
 		<td><span class="glyphicon glyphicon-remove" aria-hidden="true" ng-click="removeSetFromIndex(exercise, $index)"></span></td>

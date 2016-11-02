@@ -25,7 +25,9 @@
 
 						_.each($scope.event.trainingContent.exercises, function(exercise){
 							exercise.currentSet = 0;
-						})
+						});
+
+						$scope.currentExercise = 0;
 					},
 					function (error) {
 						$rootScope.pageLoading = false;
@@ -35,6 +37,15 @@
 			}
 		})();
 
+		$scope.nextExercise = function()
+		{
+			$scope.currentExercise++;
+		};
+
+		$scope.previousExercise = function()
+		{
+			$scope.currentExercise--;
+		};
 
 		$scope.nextSet = function(exercise){
 			exercise.currentSet++;
@@ -43,6 +54,11 @@
 		$scope.previousSet = function(exercise){
 			exercise.currentSet--;
 		};
+
+		$scope.startTraining = function(exercise)
+		{
+			exercise.sets[exercise.currentSet]
+		}
 
 	}
 })();

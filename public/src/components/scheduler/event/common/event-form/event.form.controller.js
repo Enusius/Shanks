@@ -63,8 +63,10 @@
 					case "duration" :
 						exercise.sets.push(
 							{
-								expectedDuration: 0,
-								performedDuration: 0,
+								expectedReps: 0,
+								performedReps: 0,
+								duration: 0,
+								rest: 0,
 								load: 0,
 								restAfter: 0
 							}
