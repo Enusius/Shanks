@@ -1,6 +1,8 @@
 <div class="row">
 	<div class="col-lg-12 col-md-12">
-		<button class="btn btn-lg btn-block" ng-click="startTraining(exercise)">START TRAINING</button>
+		<p>
+			<button class="btn btn-lg btn-block" ng-click="startTraining(exercise)">START TRAINING</button>
+		</p>
 	</div>
 </div>
 
@@ -8,7 +10,7 @@
 	<div class="col-lg-3 col-md-3">
 		<div class="well well-sm tiling">
 			<legend style="text-align: center">REPS</legend>
-			<div class="indicator">{{set.expectedReps}}</div>
+			<div class="indicator">{{set.performedReps}}/{{set.expectedReps}}</div>
 		</div>
 	</div>
 	<div class="col-lg-3 col-md-3">

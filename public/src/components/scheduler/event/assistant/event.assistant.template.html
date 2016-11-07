@@ -22,11 +22,14 @@
 							</div>
 
 							<div class="row">
-								<div class="col-lg-6">
-									<button class="btn btn-lg btn-block" ng-click="previousSet(exercise)" ng-disabled="exercise.currentSet == 0">PREVIOUS</button>
+								<div class="col-lg-5 col-md-5">
+									<button class="btn btn-block" ng-click="previousSet(exercise)" ng-disabled="exercise.currentSet == 0">PREVIOUS</button>
 								</div>
-								<div class="col-lg-6">
-									<button class="btn btn-lg btn-block" ng-click="nextSet(exercise)" ng-disabled="exercise.currentSet == exercise.sets.length - 1">NEXT</button>
+								<div class="col-lg-2 col-md-2">
+									<div class="well well-sm">{{exercise.currentSet + 1}} / {{exercise.sets.length}}</div>
+								</div>
+								<div class="col-lg-5 col-md-5">
+									<button class="btn btn-block" ng-click="nextSet(exercise)" ng-disabled="exercise.currentSet == exercise.sets.length - 1">NEXT</button>
 								</div>
 							</div>
 						</div>
