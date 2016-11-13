@@ -24,21 +24,43 @@
 							</div>
 
 							<div class="row">
-								<div class="col-lg-5 col-md-5">
-									<button class="btn btn-block" ng-click="previousSet(exercise)" ng-disabled="exercise.currentSet == 0">PREVIOUS</button>
-								</div>
-								<div class="col-lg-2 col-md-2">
+								<div class="col-lg-12">
 									<div class="well well-sm" style="text-align: center; font-weight: bolder"> {{exercise.currentSet + 1}} / {{exercise.sets.length}}</div>
 								</div>
-								<div class="col-lg-5 col-md-5">
-									<button class="btn btn-block" ng-click="nextSet(exercise)" ng-disabled="exercise.currentSet == exercise.sets.length - 1">NEXT</button>
-								</div>
 							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-6 col-md-6">
+							<button class="btn btn-block" ng-click="previousExercise()" ng-disabled="currentExercise == 0">PREVIOUS</button>
+						</div>
+						<div class="col-lg-6 col-md-6">
+							<button class="btn btn-block" ng-click="nextExercise()" ng-disabled="currentExercise == event.trainingContent.exercises.length - 1">NEXT</button>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
+
+	<div id="pre-training-timer"
+		 style="position: fixed;
+		 top: 0;
+		 left: 0;
+    	width: 100%;
+    	text-align: center;
+    	height: 100vh;
+    	margin: 0;
+    	line-height: 100vh;
+    	z-index: 2;
+    	font-size: 15em;
+    	background-color: rgba(255, 0, 0, 0.74);
+    	color: #009fff;"
+		 ng-show="period == 'pre-training'"
+	>
+
+		{{timeRemainingBeforeTraining}}
+
 	</div>
 
 	<style scoped>

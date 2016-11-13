@@ -55,10 +55,9 @@
 
 		$scope.startTraining = function (exercise) {
 			snapShot(exercise);
+			startPreTrainingTimer();
 
-			$scope.period = 'active';
-
-			var timeoutId = $interval(function () {
+			var trainingInterval = $interval(function () {
 				switch ($scope.period) {
 					case 'active' :
 						exercise.sets[exercise.currentSet].restAfter = exercise.sets[exercise.currentSet].originalRestAfter;
@@ -88,7 +87,7 @@
 							$scope.period = 'active';
 
 							if (exercise.currentSet >= exercise.sets.length - 1) {
-								$interval.cancel(timeoutId);
+								$interval.cancel(trainingInterval);
 								$scope.period = 'undefined';
 								exercise.sets[exercise.currentSet].restAfter = exercise.sets[exercise.currentSet].originalRestAfter;
 							}
@@ -110,6 +109,19 @@
 			exercise.sets[exercise.currentSet].originalRest = exercise.sets[exercise.currentSet].rest;
 			exercise.sets[exercise.currentSet].originalRestAfter = exercise.sets[exercise.currentSet].restAfter;
 			exercise.sets[exercise.currentSet].performedReps = 0;
+		};
+
+		var startPreTrainingTimer = function () {
+			$scope.timeRemainingBeforeTraining = 5;
+
+			$scope.period = 'pre-training';
+			var initialisationInterval = $interval(function () {
+				$scope.timeRemainingBeforeTraining--;
+				if ($scope.timeRemainingBeforeTraining == 1) {
+					$scope.period = 'active';
+					$interval.cancel(initialisationInterval);
+				}
+			}, 1000);
 		};
 
 	}
