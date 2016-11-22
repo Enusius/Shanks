@@ -68,8 +68,7 @@
 						break;
 					case 'passive' :
 						exercise.sets[exercise.currentSet].duration = exercise.sets[exercise.currentSet].originalDuration;
-						exercise.sets[exercise.currentSet].rest--;
-						if (exercise.sets[exercise.currentSet].rest == 0) {
+						if (exercise.sets[exercise.currentSet].rest <= 0) {
 							$scope.period = 'active';
 
 							exercise.sets[exercise.currentSet].performedReps++;
@@ -78,12 +77,14 @@
 								$scope.period = 'rest';
 							}
 						}
+						else {
+							exercise.sets[exercise.currentSet].rest--;
+						}
 						break;
 					case 'rest' :
 						exercise.sets[exercise.currentSet].rest = exercise.sets[exercise.currentSet].originalRest;
-						exercise.sets[exercise.currentSet].restAfter--;
 
-						if (exercise.sets[exercise.currentSet].restAfter < 0) {
+						if (exercise.sets[exercise.currentSet].restAfter <= 0) {
 							$scope.period = 'active';
 
 							if (exercise.currentSet >= exercise.sets.length - 1) {
@@ -98,6 +99,9 @@
 								exercise.sets[exercise.currentSet].originalRestAfter = exercise.sets[exercise.currentSet].restAfter;
 								exercise.sets[exercise.currentSet].performedReps = 0;
 							}
+						}
+						else {
+							exercise.sets[exercise.currentSet].restAfter--;
 						}
 						break;
 				}
