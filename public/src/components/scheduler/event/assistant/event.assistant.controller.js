@@ -121,7 +121,9 @@
 			$scope.period = 'pre-training';
 			var initialisationInterval = $interval(function () {
 				$scope.timeRemainingBeforeTraining--;
-				if ($scope.timeRemainingBeforeTraining == 1) {
+
+
+				if ($scope.timeRemainingBeforeTraining < 0) {
 					$scope.period = 'active';
 					$interval.cancel(initialisationInterval);
 				}
