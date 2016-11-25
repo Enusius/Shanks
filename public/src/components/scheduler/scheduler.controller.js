@@ -38,7 +38,7 @@
 			config: {
 				editable: true,
 				header: {
-					left: 'month agendaWeek agendaDay',
+					left: 'month agendaWeek',
 					center: 'title',
 					right: 'today prev,next'
 				}
