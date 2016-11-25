@@ -5,11 +5,11 @@
 		.module('shanksApp')
 		.controller('SchedulerController', SchedulerController);
 
-	SchedulerController.$inject = ['$scope', '$firebaseArray', '$state'];
+	SchedulerController.$inject = ['$scope', '$firebaseArray', '$firebaseObject', '$state', 'ngToast'];
 
-	function SchedulerController($scope, $firebaseArray, $state) {
+	function SchedulerController($scope, $firebaseArray, $firebaseObject, $state, ngToast) {
 
-		(function initializeController(){
+		(function initializeController() {
 			var ref = firebase.database().ref().child("events");
 			$scope.events = $firebaseArray(ref);
 		}());
@@ -18,11 +18,11 @@
 			$scope.selectedEvent = $scope.events.$getRecord(date.$id);
 		};
 
-		$scope.alertOnDrop = function(event, delta, revertFunc, jsEvent, ui, view){
+		$scope.alertOnDrop = function (event, delta, revertFunc, jsEvent, ui, view) {
 			updateEvent(event);
 		};
 
-		$scope.alertOnResize = function(event, delta, revertFunc, jsEvent, ui, view ){
+		$scope.alertOnResize = function (event, delta, revertFunc, jsEvent, ui, view) {
 			updateEvent(event);
 		};
 
@@ -50,7 +50,18 @@
 			}
 		};
 
-		$scope.openNewEvent = function(){
+		$scope.deleteEvent = function (eventId) {
+			var ref = firebase.database().ref().child("events").child(eventId);
+
+			$firebaseObject(ref).$remove().then(function (ref) {
+				ngToast.success("Séance supprimé !");
+				$scope.selectedEvent = null;
+			}, function (error) {
+				ngToast.danger("Une erreur est survenue. Veuillez reesayer");
+			});
+		};
+
+		$scope.openNewEvent = function () {
 			$state.go("newEvent");
 		}
 	}
