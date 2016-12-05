@@ -10,7 +10,7 @@
 	function SchedulerController($scope, $firebaseArray, $firebaseObject, $state, ngToast) {
 
 		(function initializeController() {
-			var ref = firebase.database().ref().child("events");
+			const ref = firebase.database().ref().child("events");
 			$scope.events = $firebaseArray(ref);
 		}());
 
@@ -27,7 +27,7 @@
 		};
 
 		function updateEvent(event) {
-			var realEvent = $scope.events.$getRecord(event.$id);
+			const realEvent = $scope.events.$getRecord(event.$id);
 			realEvent.start = event.start._d.toJSON();
 			realEvent.end = event.end._d.toJSON();
 			$scope.events.$save(realEvent);
@@ -51,7 +51,7 @@
 		};
 
 		$scope.deleteEvent = function (eventId) {
-			var ref = firebase.database().ref().child("events").child(eventId);
+			const ref = firebase.database().ref().child("events").child(eventId);
 
 			$firebaseObject(ref).$remove().then(function (ref) {
 				ngToast.success("Séance supprimé !");
@@ -63,6 +63,6 @@
 
 		$scope.openNewEvent = function () {
 			$state.go("newEvent");
-		}
+		};
 	}
 })();
