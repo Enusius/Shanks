@@ -9,13 +9,8 @@
 
 	function config($stateProvider, $urlRouterProvider) {
 		$urlRouterProvider.otherwise('/scheduler');
-		//
-		// Now set up the states
+
 		$stateProvider
-			.state('inspiration', {
-				url: '/inspiration',
-				templateUrl: '/public/src/components/inspiration/main-content.template.html'
-			})
 			.state('scheduler', {
 				url: '/scheduler',
 				templateUrl: '/public/src/components/scheduler/scheduler.template.html',
