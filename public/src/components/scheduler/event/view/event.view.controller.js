@@ -14,7 +14,7 @@
 				$state.go('scheduler');
 			}
 			else {
-				var ref = firebase.database().ref().child("events").child($stateParams.eventId);
+				const ref = firebase.database().ref().child("events").child($stateParams.eventId);
 
 				$rootScope.pageLoading = true;
 
@@ -36,7 +36,7 @@
 		};
 
 		$scope.delete = function () {
-			var ref = firebase.database().ref().child("events").child($stateParams.eventId);
+			const ref = firebase.database().ref().child("events").child($stateParams.eventId);
 
 			$rootScope.pageLoading = true;
 
