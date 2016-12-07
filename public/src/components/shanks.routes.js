@@ -16,6 +16,11 @@
 				templateUrl: '/public/src/components/scheduler/scheduler.template.html',
 				controller : 'SchedulerController'
 			})
+			.state('calendar', {
+				url: '/calendar',
+				templateUrl: '/public/src/components/scheduler/new-calendar/calendar.template.html',
+				controller : 'SchedulerController'
+			})
 			.state('newEvent', {
 				url: '/events/new',
 				templateUrl: '/public/src/components/scheduler/event/new/event.new.template.html',
