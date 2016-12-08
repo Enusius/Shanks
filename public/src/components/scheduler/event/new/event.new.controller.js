@@ -14,14 +14,22 @@
 				title: 'new workout',
 				start: new Date().toJSON(),
 				end: new Date().toJSON(),
+				startsAt: new Date().toJSON(),
+				endsAt: new Date().toJSON(),
 				trainingContent: {
 					exercises: []
 				}
 			};
 		})();
 
+		$scope.toggleCalendar = function($event, field, event) {
+			$event.preventDefault();
+			$event.stopPropagation();
+			event[field] = !event[field];
+		};
+
 		$scope.save = function () {
-			var ref = firebase.database().ref().child("events");
+			const ref = firebase.database().ref().child("events");
 			$scope.events = $firebaseArray(ref);
 
 			$scope.events
