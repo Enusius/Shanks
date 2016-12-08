@@ -14,13 +14,12 @@
 			$scope.events = $firebaseArray(ref);
 		}());
 
-		//These variables MUST be set as a minimum for the calendar to work
-		$scope.calendarView = 'month';
+		$scope.calendarView = 'week';
 		$scope.viewDate = new Date();
-		$scope.cellIsOpen = true;
+		$scope.cellIsOpen = false;
 
 		$scope.eventClicked = function (event) {
-			alert.show('Clicked', event);
+			$state.go('viewEvent', {eventId: event.$id});
 		};
 
 		$scope.eventEdited = function (event) {
@@ -33,12 +32,6 @@
 
 		$scope.eventTimesChanged = function (event) {
 			alert.show('Dropped or resized', event);
-		};
-
-		$scope.toggle = function ($event, field, event) {
-			$event.preventDefault();
-			$event.stopPropagation();
-			event[field] = !event[field];
 		};
 
 		$scope.timespanClicked = function (date, cell) {
@@ -62,14 +55,7 @@
 		};
 
 		$scope.addEvent = function() {
-			$scope.events.push({
-				title: 'New event',
-				startsAt: moment().startOf('day').toDate(),
-				endsAt: moment().endOf('day').toDate(),
-				color: calendarConfig.colorTypes.important,
-				draggable: true,
-				resizable: true
-			});
+			$state.go("newEvent");
 		};
 
 
