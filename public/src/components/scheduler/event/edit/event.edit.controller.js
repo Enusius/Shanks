@@ -14,7 +14,7 @@
 				ngToast.danger("Impossible de charger la page sans Id d'evenement");
 			}
 			else {
-				var ref = firebase.database().ref().child("events").child($stateParams.eventId);
+				const ref = firebase.database().ref().child("events").child($stateParams.eventId);
 
 				$rootScope.pageLoading = true;
 
@@ -22,6 +22,8 @@
 					function (data) {
 						$rootScope.pageLoading = false;
 						$scope.event = data;
+
+						parseEventDateToDate($scope.event);
 					},
 					function (error) {
 						$rootScope.pageLoading = false;
@@ -31,7 +33,31 @@
 			}
 		})();
 
+		$scope.toggleCalendar = function($event, field, event) {
+			$event.preventDefault();
+			$event.stopPropagation();
+			event[field] = !event[field];
+		};
+
+		function parseEventDateToDate(event) {
+			event.startsAt = new Date(event.startsAt);
+			event.endsAt = new Date(event.endsAt);
+		}
+
+		function parseEventDateToString(event) {
+			event.startsAt = event.startsAt.toJSON();
+			event.endsAt = event.endsAt.toJSON();
+		}
+
+		function parseEventDate(event) {
+			event.startsAt = event.startsAt.toJSON();
+			event.endsAt = event.endsAt.toJSON();
+		}
+
 		$scope.save = function () {
+
+			parseEventDateToString($scope.event);
+
 			$scope.event
 				.$save()
 				.then(function () {

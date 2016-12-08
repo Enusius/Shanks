@@ -32,7 +32,7 @@
 												<input type="text" class="form-control" readonly uib-datepicker-popup="dd MMMM yyyy" ng-model="event.startsAt" is-open="event.startOpen"
 													   close-text="Close">
 												<span class="input-group-btn">
-											<button type="button" class="btn btn-default" ng-click="toggle($event, 'startOpen', event)">
+											<button type="button" class="btn btn-default" ng-click="toggleCalendar($event, 'startOpen', event)">
 												<i class="glyphicon glyphicon-calendar"></i>
 											</button>
             							</span>
@@ -43,7 +43,7 @@
 											<div class="input-group">
 												<input type="text" class="form-control" readonly uib-datepicker-popup="dd MMMM yyyy" ng-model="event.endsAt" is-open="event.endOpen" close-text="Close">
 												<span class="input-group-btn">
-										  <button type="button" class="btn btn-default" ng-click="toggle($event, 'endOpen', event)">
+										  <button type="button" class="btn btn-default" ng-click="toggleCalendar($event, 'endOpen', event)">
 											<i class="glyphicon glyphicon-calendar"></i>
 										  </button>
 										</span>
@@ -51,10 +51,6 @@
 											<div uib-timepicker ng-model="event.endsAt" hour-step="1" minute-step="15" show-meridian="true"></div>
 										</td>
 									</tr>
-
-									<!--<li class="list-group-item">{{event.start | date : 'fullDate'}}</li>
-									<li class="list-group-item">{{event.start | date : 'shortTime'}}</li>
-									<li class="list-group-item">{{event.end | date : 'shortTime'}}</li>-->
 								</table>
 							</div>
 						</div>

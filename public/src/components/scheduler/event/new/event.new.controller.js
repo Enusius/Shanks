@@ -5,17 +5,17 @@
 		.module('shanksApp')
 		.controller('EventCreateController', EventCreateController);
 
-	EventCreateController.$inject = ['$scope', '$stateParams', '$state', '$firebaseArray', '$firebaseObject', 'ngToast'];
+	EventCreateController.$inject = ['$scope', '$stateParams', '$state', '$firebaseArray', '$firebaseObject', 'ngToast', 'moment'];
 
-	function EventCreateController($scope, $stateParams, $state, $firebaseArray, $firebaseObject, ngToast) {
+	function EventCreateController($scope, $stateParams, $state, $firebaseArray, $firebaseObject, ngToast, moment) {
 
 		(function initializeController() {
 			$scope.event = {
-				title: 'new workout',
+				title: 'new workoutsd',
 				start: new Date().toJSON(),
 				end: new Date().toJSON(),
-				startsAt: new Date().toJSON(),
-				endsAt: new Date().toJSON(),
+				startsAt: moment().toDate(),
+				endsAt: moment().toDate(),
 				trainingContent: {
 					exercises: []
 				}
@@ -28,9 +28,16 @@
 			event[field] = !event[field];
 		};
 
+		function parseEventDate(event) {
+			event.startsAt = event.startsAt.toJSON();
+			event.endsAt = event.endsAt.toJSON();
+		}
+
 		$scope.save = function () {
 			const ref = firebase.database().ref().child("events");
 			$scope.events = $firebaseArray(ref);
+
+			parseEventDate($scope.event);
 
 			$scope.events
 				.$add($scope.event)
