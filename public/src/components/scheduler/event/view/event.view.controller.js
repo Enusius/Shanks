@@ -41,7 +41,7 @@
 			$rootScope.pageLoading = true;
 
 			$firebaseObject(ref).$remove().then(function(ref) {
-				$state.go('scheduler');
+				$state.go('calendar');
 				$rootScope.pageLoading = false;
 				ngToast.success("Séance supprimé !");
 			}, function(error) {

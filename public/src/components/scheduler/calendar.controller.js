@@ -27,7 +27,7 @@
 			event.endsAt = new Date(event.endsAt);
 		}
 
-		$scope.calendarView = 'week';
+		$scope.calendarView = 'month';
 		$scope.viewDate = new Date();
 		$scope.cellIsOpen = false;
 

@@ -49,7 +49,7 @@
 		};
 
 		$scope.cancel = function () {
-			$state.go('scheduler', {eventId: $stateParams.eventId});
+			$state.go('calendar', {eventId: $stateParams.eventId});
 		};
 	}
 })();
