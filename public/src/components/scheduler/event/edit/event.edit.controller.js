@@ -21,9 +21,9 @@
 				$firebaseObject(ref).$loaded(
 					function (data) {
 						$rootScope.pageLoading = false;
+						parseEventDateToDate(data);
 						$scope.event = data;
 
-						parseEventDateToDate($scope.event);
 					},
 					function (error) {
 						$rootScope.pageLoading = false;

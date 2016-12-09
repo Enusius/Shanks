@@ -5,14 +5,27 @@
 		.module('shanksApp')
 		.controller('CalendarController', CalendarController);
 
-	CalendarController.$inject = ['$scope', '$firebaseArray', '$firebaseObject', '$state', 'ngToast', 'calendarConfig'];
+	CalendarController.$inject = ['$scope', '$firebaseArray', '$firebaseObject', '$state', 'ngToast', 'calendarConfig', '_'];
 
-	function CalendarController($scope, $firebaseArray, $firebaseObject, $state, ngToast, calendarConfig) {
+	function CalendarController($scope, $firebaseArray, $firebaseObject, $state, ngToast, calendarConfig, _) {
 
 		(function initializeController() {
 			const ref = firebase.database().ref().child("events");
 			$scope.events = $firebaseArray(ref);
 		}());
+
+
+		$scope.$watch('events', function(events){
+			_.each(events, function(event)
+			{
+				parseEventDateToDate(event);
+			})
+		}, true);
+
+		function parseEventDateToDate(event) {
+			event.startsAt = new Date(event.startsAt);
+			event.endsAt = new Date(event.endsAt);
+		}
 
 		$scope.calendarView = 'week';
 		$scope.viewDate = new Date();
@@ -28,6 +41,17 @@
 
 		$scope.eventDeleted = function (event) {
 			alert.show('Deleted', event);
+		};
+
+		$scope.deleteEvent = function (eventId) {
+			const ref = firebase.database().ref().child("events").child(eventId);
+
+			$firebaseObject(ref).$remove().then(function (ref) {
+				ngToast.success("Séance supprimé !");
+				$scope.selectedEvent = null;
+			}, function (error) {
+				ngToast.danger("Une erreur est survenue. Veuillez reesayer");
+			});
 		};
 
 		$scope.eventTimesChanged = function (event) {

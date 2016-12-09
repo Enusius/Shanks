@@ -12,8 +12,6 @@
 		(function initializeController() {
 			$scope.event = {
 				title: 'new workoutsd',
-				start: new Date().toJSON(),
-				end: new Date().toJSON(),
 				startsAt: moment().toDate(),
 				endsAt: moment().toDate(),
 				trainingContent: {
