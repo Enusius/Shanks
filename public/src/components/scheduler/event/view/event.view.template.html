@@ -19,9 +19,9 @@
 					<div class="col-lg-12">
 						<legend>{{event.title}}</legend>
 						<ul class="list-group">
-							<li class="list-group-item">{{event.start | date : 'fullDate'}}</li>
-							<li class="list-group-item">{{event.start | date : 'shortTime'}}</li>
-							<li class="list-group-item">{{event.end | date : 'shortTime'}}</li>
+							<li class="list-group-item">{{event.startsAt | date : 'fullDate'}}</li>
+							<li class="list-group-item">{{event.startsAt | date : 'shortTime'}}</li>
+							<li class="list-group-item">{{event.endsAt | date : 'shortTime'}}</li>
 						</ul>
 					</div>
 				</div>

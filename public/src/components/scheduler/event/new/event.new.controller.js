@@ -5,24 +5,40 @@
 		.module('shanksApp')
 		.controller('EventCreateController', EventCreateController);
 
-	EventCreateController.$inject = ['$scope', '$stateParams', '$state', '$firebaseArray', '$firebaseObject', 'ngToast'];
+	EventCreateController.$inject = ['$scope', '$stateParams', '$state', '$firebaseArray', '$firebaseObject', 'ngToast', 'moment', 'calendarConfig'];
 
-	function EventCreateController($scope, $stateParams, $state, $firebaseArray, $firebaseObject, ngToast) {
+	function EventCreateController($scope, $stateParams, $state, $firebaseArray, $firebaseObject, ngToast, moment, calendarConfig) {
 
 		(function initializeController() {
 			$scope.event = {
-				title: 'new workout',
-				start: new Date().toJSON(),
-				end: new Date().toJSON(),
+				title: 'new workouts',
+				startsAt: moment().toDate(),
+				endsAt: moment().toDate(),
+				draggable: true,
+				resizable: true,
+				color: calendarConfig.colorTypes.info,
 				trainingContent: {
 					exercises: []
 				}
 			};
 		})();
 
+		$scope.toggleCalendar = function($event, field, event) {
+			$event.preventDefault();
+			$event.stopPropagation();
+			event[field] = !event[field];
+		};
+
+		function parseEventDate(event) {
+			event.startsAt = event.startsAt.toJSON();
+			event.endsAt = event.endsAt.toJSON();
+		}
+
 		$scope.save = function () {
-			var ref = firebase.database().ref().child("events");
+			const ref = firebase.database().ref().child("events");
 			$scope.events = $firebaseArray(ref);
+
+			parseEventDate($scope.event);
 
 			$scope.events
 				.$add($scope.event)
@@ -36,7 +52,7 @@
 		};
 
 		$scope.cancel = function () {
-			$state.go('scheduler', {eventId: $stateParams.eventId});
+			$state.go('calendar', {eventId: $stateParams.eventId});
 		};
 	}
 })();

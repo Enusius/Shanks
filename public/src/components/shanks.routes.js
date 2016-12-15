@@ -8,13 +8,13 @@
 	config.$inject = ['$stateProvider', '$urlRouterProvider'];
 
 	function config($stateProvider, $urlRouterProvider) {
-		$urlRouterProvider.otherwise('/scheduler');
+		$urlRouterProvider.otherwise('/calendar');
 
 		$stateProvider
-			.state('scheduler', {
-				url: '/scheduler',
-				templateUrl: '/public/src/components/scheduler/scheduler.template.html',
-				controller : 'SchedulerController'
+			.state('calendar', {
+				url: '/calendar',
+				templateUrl: '/public/src/components/scheduler/calendar.template.html',
+				controller : 'CalendarController'
 			})
 			.state('newEvent', {
 				url: '/events/new',
