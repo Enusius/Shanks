@@ -5,15 +5,18 @@
 		.module('shanksApp')
 		.controller('EventCreateController', EventCreateController);
 
-	EventCreateController.$inject = ['$scope', '$stateParams', '$state', '$firebaseArray', '$firebaseObject', 'ngToast', 'moment'];
+	EventCreateController.$inject = ['$scope', '$stateParams', '$state', '$firebaseArray', '$firebaseObject', 'ngToast', 'moment', 'calendarConfig'];
 
-	function EventCreateController($scope, $stateParams, $state, $firebaseArray, $firebaseObject, ngToast, moment) {
+	function EventCreateController($scope, $stateParams, $state, $firebaseArray, $firebaseObject, ngToast, moment, calendarConfig) {
 
 		(function initializeController() {
 			$scope.event = {
-				title: 'new workoutsd',
+				title: 'new workouts',
 				startsAt: moment().toDate(),
 				endsAt: moment().toDate(),
+				draggable: true,
+				resizable: true,
+				color: calendarConfig.colorTypes.info,
 				trainingContent: {
 					exercises: []
 				}
