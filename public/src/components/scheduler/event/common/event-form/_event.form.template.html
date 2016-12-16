@@ -98,7 +98,24 @@
 										<ng-include src="'/public/src/components/scheduler/event/common/exercise-table/edit/_exercise-table-duration.edit.template.html'"></ng-include>
 									</div>
 								</div>
-								<div class="text-center"><span class="glyphicon glyphicon-plus" ng-click="addSet(exercise)"></span></div>
+
+								<div class="text-center">
+									<div class="btn-group" role="group">
+										<button type="button" class="btn btn-default">
+											<span class="glyphicon glyphicon-plus" ng-click="addSet(exercise, 1)"></span>
+										</button>
+
+										<button class="btn btn-default dropdown-toggle" type="button" id="set-multiplicator-drop-down" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+											<span class="caret"></span>
+										</button>
+										<ul class="dropdown-menu" aria-labelledby="set-multiplicator-drop-down">
+											<li><a ng-click="addSet(exercise, 2)">x2</a></li>
+											<li><a ng-click="addSet(exercise, 3)">x3</a></li>
+											<li><a ng-click="addSet(exercise, 5)">x5</a></li>
+											<li><a ng-click="addSet(exercise, 10)">x10</a></li>
+										</ul>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>

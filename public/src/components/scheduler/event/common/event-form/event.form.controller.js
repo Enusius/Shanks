@@ -11,7 +11,7 @@
 
 		$scope.addExercise = function () {
 
-			var modalInstance = $uibModal.open({
+			const modalInstance = $uibModal.open({
 				animation: 'true',
 				ariaLabelledBy: 'modal-title',
 				ariaDescribedBy: 'modal-body',
@@ -41,12 +41,14 @@
 			$scope.event.trainingContent.exercises.splice(exerciseIndex, 1);
 		};
 
-		$scope.addSet = function (exercise) {
+		$scope.addSet = function (exercise, nb) {
 			if (exercise.sets === undefined || exercise.sets == null)
 				exercise.sets = [];
 
 			if (exercise.sets.length > 0) {
-				exercise.sets.push(angular.copy(exercise.sets[exercise.sets.length - 1]));
+				for(let i = 0; i < nb; i++) {
+					exercise.sets.push(angular.copy(exercise.sets[exercise.sets.length - 1]));
+				}
 			}
 			else {
 				switch (exercise.exercise.type) {

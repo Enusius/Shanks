@@ -55,7 +55,7 @@
 		};
 
 		$scope.eventTimesChanged = function (event) {
-			alert.show('Dropped or resized', event);
+			//alert.show('Dropped or resized', event);
 		};
 
 		$scope.timespanClicked = function (date, cell) {
