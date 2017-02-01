@@ -56,5 +56,10 @@
 				templateUrl: '/public/src/components/exercise/edit/exercise.edit.template.html',
 				controller : 'ExerciseEditController'
 			})
+			.state('dashboard', {
+				url: '/dashboard',
+				templateUrl: '/public/src/components/dashboard/dashboard.template.html',
+				controller : 'DashboardController'
+			})
 	}
 })();
