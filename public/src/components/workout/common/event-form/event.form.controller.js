@@ -15,7 +15,7 @@
 				animation: 'true',
 				ariaLabelledBy: 'modal-title',
 				ariaDescribedBy: 'modal-body',
-				templateUrl: '/public/src/components/scheduler/event/common/select-exercise/_select-exercise.form.template.html',
+				templateUrl: '/public/src/components/workout/common/select-exercise/_select-exercise.form.template.html',
 				controller: 'SelectExerciseFormController',
 				size: 'sm',
 				resolve: {}

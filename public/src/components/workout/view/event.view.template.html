@@ -3,7 +3,9 @@
 		<h1>
 			Event Detail
 				<span>
-					<button class="btn" ng-click="openAssistant()"><span class="glyphicon glyphicon-fire"></span></button>
+					<button class="btn" ng-click="openAssistant()" ng-hide="event.trainingContent === undefined || event.trainingContent.exercises.length == 0">
+						<span class="glyphicon glyphicon-fire"></span>
+					</button>
 				</span>
 				<span class="pull-right">
 					<button class="btn btn-primary" ng-click="edit()">Edit..</button>

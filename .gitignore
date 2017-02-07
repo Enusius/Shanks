@@ -3,3 +3,4 @@ shanks.iml
 node_modules
 public/bower_components
 public/dist
+npm-debug.log.*

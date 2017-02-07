@@ -18,22 +18,22 @@
 			})
 			.state('newEvent', {
 				url: '/events/new',
-				templateUrl: '/public/src/components/scheduler/event/new/event.new.template.html',
+				templateUrl: '/public/src/components/workout/new/event.new.template.html',
 				controller : 'EventCreateController'
 			})
 			.state('viewEvent', {
 				url: '/events/:eventId/view',
-				templateUrl: '/public/src/components/scheduler/event/view/event.view.template.html',
+				templateUrl: '/public/src/components/workout/view/event.view.template.html',
 				controller : 'EventViewController'
 			})
 			.state('editEvent', {
 				url: '/events/:eventId/edit',
-				templateUrl: '/public/src/components/scheduler/event/edit/event.edit.template.html',
+				templateUrl: '/public/src/components/workout/edit/event.edit.template.html',
 				controller : 'EventEditController'
 			})
 			.state('assistantEvent', {
 				url: '/events/:eventId/assistant',
-				templateUrl: '/public/src/components/scheduler/event/assistant/event.assistant.template.html',
+				templateUrl: '/public/src/components/workout/assistant/event.assistant.template.html',
 				controller : 'EventAssistantController'
 			})
 			.state('exercises', {

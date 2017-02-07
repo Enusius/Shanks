@@ -23,8 +23,6 @@
 					}) !== undefined;
 			});
 
-			extractExerciceFromWorkouts(workoutsWhereSelectedExerciseWasPerformed[0], newValue);
-
 			var liftedLoadByDate = calculateLiftedLoadWithDate(workoutsWhereSelectedExerciseWasPerformed, newValue);
 
 			$scope.labels = _.map(liftedLoadByDate, function (el) {
@@ -59,17 +57,24 @@
 
 			return {
 				date: workoutDate,
-				liftedLoad: calculateLiftedLoad(exerciseSets)
+				liftedLoad: calculateLiftedLoad(selectedExercise, exerciseSets)
 			};
-
 		};
 
-		var calculateLiftedLoad = function (exerciseSets) {
+		var calculateLiftedLoad = function (exercise, exerciseSets) {
 			var liftedLoad = 0;
 
-			_.each(exerciseSets, function (set) {
-				liftedLoad += set.expectedReps * set.load;
-			});
+			if(exercise.type == 'reps') {
+				_.each(exerciseSets, function (set) {
+					liftedLoad += set.expectedReps * set.load;
+				});
+			}
+			else
+			{
+				_.each(exerciseSets, function (set) {
+					liftedLoad += set.duration * (set.load + 1) * set.expectedReps;
+				});
+			}
 
 			return liftedLoad;
 		};
