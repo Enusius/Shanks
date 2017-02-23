@@ -13,28 +13,22 @@
 		$stateProvider
 			.state('calendar', {
 				url: '/calendar',
-				templateUrl: '/public/src/components/scheduler/calendar.template.html',
-				controller : 'CalendarController'
-			})
-			.state('newEvent', {
-				url: '/events/new',
-				templateUrl: '/public/src/components/workout/new/event.new.template.html',
-				controller : 'EventCreateController'
+				templateUrl: '/public/src/components/scheduler/calendar.template.html'
 			})
 			.state('viewEvent', {
 				url: '/events/:eventId/view',
 				templateUrl: '/public/src/components/workout/view/event.view.template.html',
 				controller : 'EventViewController'
 			})
+			.state('newEvent', {
+				url: '/events/new',
+				templateUrl: '/public/src/components/workout/common/event-form/_event.form.template.html',
+				controller : 'EventCreateController'
+			})
 			.state('editEvent', {
 				url: '/events/:eventId/edit',
-				templateUrl: '/public/src/components/workout/edit/event.edit.template.html',
+				templateUrl: '/public/src/components/workout/common/event-form/_event.form.template.html',
 				controller : 'EventEditController'
-			})
-			.state('assistantEvent', {
-				url: '/events/:eventId/assistant',
-				templateUrl: '/public/src/components/workout/assistant/event.assistant.template.html',
-				controller : 'EventAssistantController'
 			})
 			.state('exercises', {
 				url: '/exercises',
@@ -43,7 +37,7 @@
 			})
 			.state('newExercise', {
 				url: '/exercises/new',
-				templateUrl: '/public/src/components/exercise/new/exercise.new.template.html',
+				templateUrl: '/public/src/components/exercise/common/partials/_exercise.form.template.html',
 				controller : 'ExerciseCreateController'
 			})
 			.state('viewExercise', {
@@ -53,13 +47,13 @@
 			})
 			.state('editExercise', {
 				url: '/exercises/:exerciseId/edit',
-				templateUrl: '/public/src/components/exercise/edit/exercise.edit.template.html',
+				templateUrl: '/public/src/components/exercise/common/partials/_exercise.form.template.html',
 				controller : 'ExerciseEditController'
 			})
-			.state('dashboard', {
-				url: '/dashboard',
-				templateUrl: '/public/src/components/dashboard/dashboard.template.html',
-				controller : 'DashboardController'
+			.state('assistantEvent', {
+				url: '/events/:eventId/assistant',
+				templateUrl: '/public/src/components/workout/assistant/event.assistant.template.html',
+				controller : 'EventAssistantController'
 			})
 	}
 })();

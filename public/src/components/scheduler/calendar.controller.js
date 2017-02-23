@@ -35,14 +35,6 @@
 			$state.go('viewEvent', {eventId: event.$id});
 		};
 
-		$scope.eventEdited = function (event) {
-			alert.show('Edited', event);
-		};
-
-		$scope.eventDeleted = function (event) {
-			alert.show('Deleted', event);
-		};
-
 		$scope.deleteEvent = function (eventId) {
 			const ref = firebase.database().ref().child("events").child(eventId);
 
@@ -54,8 +46,8 @@
 			});
 		};
 
-		$scope.eventTimesChanged = function (event) {
-			//alert.show('Dropped or resized', event);
+		$scope.addEvent = function() {
+			$state.go("newEvent");
 		};
 
 		$scope.timespanClicked = function (date, cell) {
@@ -76,26 +68,6 @@
 				}
 			}
 
-		};
-
-		$scope.addEvent = function() {
-			$state.go("newEvent");
-		};
-
-
-		$scope.deleteEvent = function (eventId) {
-			const ref = firebase.database().ref().child("events").child(eventId);
-
-			$firebaseObject(ref).$remove().then(function (ref) {
-				ngToast.success("Séance supprimé !");
-				$scope.selectedEvent = null;
-			}, function (error) {
-				ngToast.danger("Une erreur est survenue. Veuillez reesayer");
-			});
-		};
-
-		$scope.openNewEvent = function () {
-			$state.go("newEvent");
 		};
 	}
 })();

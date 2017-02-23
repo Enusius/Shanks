@@ -5,9 +5,9 @@
 		.module('shanksApp')
 		.controller('ExerciseCreateController', ExerciseCreateController);
 
-	ExerciseCreateController.$inject = ['$scope', '$stateParams', '$state', '$firebaseArray', '$firebaseObject', 'ngToast'];
+	ExerciseCreateController.$inject = ['$scope', '$state', '$firebaseArray', '$firebaseObject', 'ngToast'];
 
-	function ExerciseCreateController($scope, $stateParams, $state, $firebaseArray, $firebaseObject, ngToast) {
+	function ExerciseCreateController($scope, $state, $firebaseArray, $firebaseObject, ngToast) {
 
 		(function initializeController() {
 			$scope.exercise = {

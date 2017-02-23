@@ -55,8 +55,8 @@
 					case "reps" :
 						exercise.sets.push(
 							{
-								expectedReps: 0,
-								performedReps: 0,
+								expectedReps: 1,
+								performedReps: 1,
 								load: 0,
 								restAfter: 0
 							}
@@ -65,9 +65,9 @@
 					case "duration" :
 						exercise.sets.push(
 							{
-								expectedReps: 0,
-								performedReps: 0,
-								duration: 0,
+								expectedReps: 1,
+								performedReps: 1,
+								duration: 1,
 								rest: 0,
 								load: 0,
 								restAfter: 0

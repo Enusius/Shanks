@@ -35,7 +35,7 @@
 			$scope.exercise
 				.$save()
 				.then(function () {
-					$state.go('viewEvent', {exerciseId: $stateParams.exerciseId});
+					$state.go('viewExercise', {exerciseId: $stateParams.exerciseId});
 					ngToast.success("Sauvegarde reussi!");
 				})
 				.catch(function () {

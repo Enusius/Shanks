@@ -5,9 +5,9 @@
 		.module('shanksApp')
 		.controller('ExerciseListController', ExerciseListController);
 
-	ExerciseListController.$inject = ['$scope', '$rootScope', '$state', '$firebaseArray', 'ngToast'];
+	ExerciseListController.$inject = ['$scope', '$state', '$firebaseArray'];
 
-	function ExerciseListController($scope, $rootScope, $state, $firebaseArray, ngToast) {
+	function ExerciseListController($scope, $state, $firebaseArray) {
 
 		(function initializeController() {
 			var ref = firebase.database().ref().child("exercises");
