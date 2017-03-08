@@ -14,6 +14,6 @@
 	cursor: pointer;
 }
 
-.table td {
+.table td, th {
 	text-align: center;
 }
