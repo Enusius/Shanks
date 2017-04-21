@@ -24,13 +24,13 @@
     "angular-bootstrap": "^2.4.0",
     "angular-animate": "^1.6.1",
     "lodash": "^4.17.4",
-    "angular-bootstrap-calendar": "^0.27.5",
-    "interactjs": "^1.2.8",
-    "angular": "^1.6.1",
+    "angular-bootstrap-calendar": "0.29.0",
+    "interactjs": "1.2.8",
+    "angular": "1.6.1",
     "ngToast": "ngtoast#^2.0.0",
     "angular-chart.js": "^1.1.1"
   },
   "resolutions": {
-    "angular": "^1.6.3"
+    "angular": "1.6.4"
   }
 }

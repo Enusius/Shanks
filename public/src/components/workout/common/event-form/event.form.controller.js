@@ -42,7 +42,7 @@
 		};
 
 		$scope.addSet = function (exercise, nb) {
-			if (exercise.sets === undefined || exercise.sets == null)
+			if (exercise.sets === undefined || exercise.sets === null)
 				exercise.sets = [];
 
 			if (exercise.sets.length > 0) {

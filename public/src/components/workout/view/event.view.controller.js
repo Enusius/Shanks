@@ -10,7 +10,7 @@
 	function EventViewController($scope, $rootScope, $stateParams, $state, $firebaseObject, ngToast) {
 
 		(function initializeController() {
-			if ($stateParams.eventId === undefined || $stateParams.eventId == null || $stateParams.eventId == "") {
+			if ($stateParams.eventId === undefined || $stateParams.eventId === null || $stateParams.eventId === "") {
 				$state.go('scheduler');
 			}
 			else {
@@ -49,9 +49,5 @@
 				$rootScope.pageLoading = false;
 			});
 		};
-
-		$scope.openAssistant = function(){
-			$state.go('assistantEvent', {eventId: $stateParams.eventId});
-		}
 	}
 })();

@@ -10,7 +10,7 @@
 	function EventEditController($scope, $rootScope, $stateParams, $state, $firebaseObject, ngToast) {
 
 		(function initializeController() {
-			if ($stateParams.eventId === undefined || $stateParams.eventId == null || $stateParams.eventId == "") {
+			if ($stateParams.eventId === undefined || $stateParams.eventId === null || $stateParams.eventId === "") {
 				ngToast.danger("Impossible de charger la page sans Id d'evenement");
 			}
 			else {

@@ -10,7 +10,7 @@
 
 				function updateTime() {
 					scope.value--;
-					if (scope.value == 0) {
+					if (scope.value === 0) {
 						scope.value = scope.initialValue;
 						$interval.cancel(timeoutId);
 					}
@@ -24,7 +24,7 @@
 				});
 
 				scope.startTimer = function () {
-					if(attrs.active !== undefined && attrs.active == "true" && timeoutId == null) {
+					if(attrs.active !== undefined && attrs.active === "true" && timeoutId === null) {
 						timeoutId = $interval(function () {
 							updateTime(); // update DOM
 						}, 1000);

@@ -50,10 +50,5 @@
 				templateUrl: '/public/src/components/exercise/common/partials/_exercise.form.template.html',
 				controller : 'ExerciseEditController'
 			})
-			.state('assistantEvent', {
-				url: '/events/:eventId/assistant',
-				templateUrl: '/public/src/components/workout/assistant/event.assistant.template.html',
-				controller : 'EventAssistantController'
-			})
 	}
 })();

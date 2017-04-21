@@ -14,7 +14,7 @@
 	<script src="/public/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="/public/bower_components/lodash/dist/lodash.min.js"></script>
 	<script src="/public/bower_components/ngToast/dist/ngToast.min.js"></script>
-	<script src="/public/bower_components/interactjs/dist/interact.min.js"></script>
+	<script src="/public/bower_components/interactjs/dist/interact.js"></script>
 
 	<script src="/public/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
 
@@ -40,14 +40,12 @@
 	<script src="/public/src/components/workout/view/directives/exerciseTableReps/exercise-table-reps.directive.js"></script>
 	<script src="/public/src/components/workout/new/event.new.controller.js"></script>
 	<script src="/public/src/components/workout/edit/event.edit.controller.js"></script>
-	<script src="/public/src/components/workout/assistant/event.assistant.controller.js"></script>
 	<script src="/public/src/components/exercise/view/exercise.view.controller.js"></script>
 	<script src="/public/src/components/exercise/new/exercise.new.controller.js"></script>
 	<script src="/public/src/components/exercise/list/exercise.list.controller.js"></script>
 	<script src="/public/src/components/exercise/edit/exercise.edit.controller.js"></script>
 	<script src="/public/src/components/scheduler/calendar.controller.js"></script>
 	<script src="/public/src/components/progressBar/progress-bar.directive.js"></script>
-	<script src="/public/src/components/menu/menu.controller.js"></script>
 	<script src="/public/src/components/firebase/firebase.config.js"></script>
 	<script src="/public/src/components/cubeGridSpinner/cube-grid-spinner.directive.js"></script>
 	<script src="/public/src/components/shanks.routes.js"></script>
@@ -59,15 +57,17 @@
 	<!-- build:css css/combined.css -->
 	<link rel="stylesheet" href="/public/bower_components/ngToast/dist/ngToast.min.css"/>
 	<link rel="stylesheet" href="/public/bower_components/ngToast/dist/ngToast-animations.min.css"/>
-	<link rel="stylesheet" href="/public/bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/public/src/resources/css/theme.min.css">
 	<link rel="stylesheet" href="/public/src/resources/css/overwrite.css"/>
+	<link rel="stylesheet" href="/public/src/resources/css/sidenav.css"/>
 	<link rel="stylesheet" href="/public/bower_components/angular-bootstrap-calendar/dist/css/angular-bootstrap-calendar.min.css">
 	<!-- endbuild -->
 </head>
 <body>
 
-<div class="container-fluid">
-	<header class="row" ng-include="'public/src/components/menu/menu.template.html'"></header>
+<ng-include src="'public/src/components/menu/side-nav.template.html'"></ng-include>
+
+<div class="main container-fluid">
 
 	<main class="content" ui-view ng-hide="isPageLoading()">
 	</main>

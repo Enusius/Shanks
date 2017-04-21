@@ -79,13 +79,13 @@
 								No Exercises
 							</h3>
 
-							<div class="panel panel-primary" ng-repeat="exercise in event.trainingContent.exercises">
+							<div class="panel" ng-repeat="exercise in event.trainingContent.exercises">
 								<div class="panel-heading">
 									<div class="row">
 										<div class="col-lg-12">
 											{{exercise.exercise.name}}
 											<span class="pull-right">
-													<button class="btn btn-warning" ng-click="removeExerciseFromIndex($index)">Remove</button>
+													<button class="btn btn-danger" ng-click="removeExerciseFromIndex($index)">Remove</button>
 												</span>
 										</div>
 									</div>

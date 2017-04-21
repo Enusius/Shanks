@@ -52,7 +52,7 @@
 	<link rel="stylesheet" href="../bower_components/fullcalendar/dist/fullcalendar.css"/>
 	<link rel="stylesheet" href="../bower_components/ngToast/dist/ngToast.min.css"/>
 	<link rel="stylesheet" href="../bower_components/ngToast/dist/ngToast-animations.min.css"/>
-	<link rel="stylesheet" href="resources/css/mybootstrap.min.css"/>
+	<link rel="stylesheet" href="resources/css/theme.min.css"/>
 	<link rel="stylesheet" href="resources/css/overwrite.css"/>
 	<!-- endbuild -->
 </head>
@@ -61,8 +61,7 @@
 <div class="container-fluid">
 	<header class="row" ng-include="'public/src/components/menu/menu.template.html'"></header>
 
-	<main class="content" ui-view ng-hide="isPageLoading()">
-	</main>
+	<main class="content" ui-view ng-hide="isPageLoading()"></main>
 
 	<div class="row">
 		<div class="col-lg-12" ng-show="isPageLoading()">
