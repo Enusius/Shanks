@@ -1,7 +1,7 @@
 <form>
 	<div ng-controller="EventFormController">
 		<div class="page-header">
-			<h1>Event Detail
+			<h1>EVENT DETAIL
 
 				<span class="pull-right">
 						<button class="btn btn-success" ng-click="save()">Save</button>
@@ -79,12 +79,12 @@
 								No Exercises
 							</h3>
 
-							<div class="panel" ng-repeat="exercise in event.trainingContent.exercises">
+							<div class="panel panel-default" ng-repeat="exercise in event.trainingContent.exercises">
 								<div class="panel-heading">
 									<div class="row">
 										<div class="col-lg-12">
-											{{exercise.exercise.name}}
-											<span class="pull-right">
+											<span class="h4">{{exercise.exercise.name}}</span>
+												<span class="pull-right">
 													<button class="btn btn-danger" ng-click="removeExerciseFromIndex($index)">Remove</button>
 												</span>
 										</div>

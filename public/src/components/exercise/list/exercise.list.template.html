@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="col-lg-12">
 		<div class="page-header">
-			<h3>Mes Exercices</h3>
+			<h3>MY EXERCISES</h3>
 		</div>
 	</div>
 </div>
@@ -9,17 +9,21 @@
 <div class="row">
 	<div class="col-lg-12">
 		<p>
-			<button class="btn btn-primary" ng-click="create()">
-				<span class="glyphicon glyphicon-plus"></span>
-				Create Exercise
-			</button>
+			<form class="form form-inline">
+				<input type="text" class="form-control form-inline" placeholder="Filter by name..." ng-model="filter"/>
+				<button class="btn btn-primary" ng-click="create()">
+					<span class="glyphicon glyphicon-plus"></span>
+					Create Exercise
+				</button>
+			</form>
 		</p>
 	</div>
+</div>
 </div>
 <div class="row">
 	<div class="col-lg-12">
 		<ul class="list-group">
-			<li class="list-group-item" ng-repeat="exercise in exercises" >
+			<li class="list-group-item" ng-repeat="exercise in exercises | filter : filter">
 				<div class="row">
 					<div class="col-lg-12">
 						<div>
