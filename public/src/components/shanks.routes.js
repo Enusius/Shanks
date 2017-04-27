@@ -50,5 +50,10 @@
 				templateUrl: '/public/src/components/exercise/common/partials/_exercise.form.template.html',
 				controller : 'ExerciseEditController'
 			})
+			.state('weight', {
+				url: '/weight',
+				templateUrl: '/public/src/components/weight/weight-manager.template.html',
+				controller : 'WeightManagerController'
+			})
 	}
 })();
